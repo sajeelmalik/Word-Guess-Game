@@ -1,10 +1,10 @@
-var words = ["marth", "fox", "captain falcon", "jigglypuff", "falco", "sheik", "ice climbers", "peach", "luigi", "mario", "ganondorf", "dr mario", "mewtwo", "bowser", "link", "zelda", "pikachu"];
+var words = ["marth", "fox", "captainfalcon", "jigglypuff", "falco", "sheik", "iceclimbers", "peach", "luigi", "mario", "ganondorf", "drmario", "mewtwo", "bowser", "link", "zelda", "pikachu"];
 var alphabet = "abcdefghijklmnopqrstuwxyz";
 
 // initialize game variables
 var wins = 0;
 var losses = 0;
-var guessesLeft = 9;
+var guessesLeft = 0;
 var guesses = [];
 var correctLetters = 0;
 
@@ -22,6 +22,7 @@ var game = {
     // },
 
     play: function(){
+        guessesLeft = this.CPUGuess.length + 4;
         for(var i = 0; i < this.CPUGuess.length; i++){
             blank.push("__");
         }
@@ -38,7 +39,6 @@ var game = {
 
     restart: function(){
         this.CPUGuess = words[(Math.floor(Math.random() * words.length))];
-        guessesLeft = 9;
         guesses = [];
         blank = [];
         wins = 0;
@@ -76,7 +76,6 @@ document.onkeyup = function(event){
             else if(game.CPUGuess.includes(guess)){
                 guesses.push(guess);  
                 guessesLeft--;
-                correctLetters++;
 
                 // replaces blank location with correct guess, using while statement to check for multiple locations of a single letter
                 var idx = game.CPUGuess.indexOf(guess);
@@ -88,6 +87,7 @@ document.onkeyup = function(event){
                 for(var i = 0; i < indices.length; i++){
                     blank[indices[i]] = guess;
                 }
+                correctLetters += indices.length;
                 
                 document.getElementById("character").textContent = blank.join(" ");
 
@@ -108,7 +108,8 @@ document.onkeyup = function(event){
         }
         else{
             wins++;
-            document.getElementById("message").textContent = "YOU GOT IT! FALCOOON PUNNNCH!";
+            // document.getElementById("message").textContent = "YOU GOT IT! FALCOOON PUNNNCH!";
+            alert("YOU GOT IT! FALCOOON PUNNNCH!");
             game.restart();
             game.play();
         }
@@ -116,8 +117,8 @@ document.onkeyup = function(event){
         
     }
 
-    // alert user to stay within the bounds of the game
-    else{
-        alert("Type a letter to guess the word!");
-    }
+    // // alert user to stay within the bounds of the game
+    // else{
+    //     alert("Type a letter to guess the word!");
+    // }
 };
