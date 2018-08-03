@@ -19,7 +19,7 @@ Follow the deployed project link below to play the game!
 
 ### Image Preview of Word Guess Game
 <!-- take a picture of the image and add it into the readme  -->
-[Word Guess Game Preview](https://github.com/sajeelmalik/Word-Guess-Game/blob/master/assets/images/preview.JPG "Super Smash Bros. Challenge")
+![Word Guess Game Preview](https://raw.githubusercontent.com/sajeelmalik/Word-Guess-Game/master/assets/images/preview.JPG "Super Smash Bros. Challenge")
 
 ## Prerequisites
 
