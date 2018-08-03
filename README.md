@@ -2,7 +2,7 @@
 
 Try to guess the randomly chosen Super Smash Bros. character!
 
-* You only have a certain number of guesses to 
+* You only have a certain number of guesses to figure out which character is hidden!
 * Powered by Bootstrap and Javascript
 
 ## Getting Started
@@ -17,7 +17,7 @@ Follow the deployed project link below to play the game!
 
 ### Image Preview of Word Guess Game
 <!-- take a picture of the image and add it into the readme  -->
-!Word Guess Game Preview]( "Super Smash Bros. Challenge")
+[Word Guess Game Preview]( "Super Smash Bros. Challenge")
 
 ## Prerequisites
 
@@ -36,9 +36,39 @@ The page can be run from any browser, preferably on Google Chrome!
 <!-- put snippets of code inside ``` ``` so it will look like code -->
 <!-- if you want to put blockquotes use a > -->
 
-Javascript enables the developer to instatiate functions that rely on a user's input, namely when they press certain keys on the keyboard. Psychic Game's crucial logic runs on an event-specific function *only* when a user's inputted key hase been released (document.onkeyup).
-```
+Object-oriented programming often proves to be a well-suited mechanism for repetitive tasks. An example of such an implementation is displayed below:
 
+```
+var game = {
+
+    CPUGuess: words[(Math.floor(Math.random() * words.length))],
+
+    play: function(){
+        guessesLeft = this.CPUGuess.length + 4;
+        for(var i = 0; i < this.CPUGuess.length; i++){
+            blank.push("__");
+        }
+        document.getElementById("character").textContent = blank.join(" ");
+
+    },
+
+    update: function(){
+        guesses.push(guess);  
+        guessesLeft--;
+        document.getElementById("lettersString").textContent = guesses.join(", ");
+        document.getElementById("guessesLeftString").textContent = guessesLeft;
+    },
+
+    restart: function(){
+        this.CPUGuess = words[(Math.floor(Math.random() * words.length))];
+        guesses = [];
+        blank = [];
+        wins = 0;
+        losses = 0;
+        correctLetters = 0;
+    }
+
+};
 
 ```
 

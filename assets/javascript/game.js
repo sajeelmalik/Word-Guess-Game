@@ -63,6 +63,7 @@ document.onkeyup = function(event){
             if(guessesLeft === 0){
                 losses++;
                 document.getElementById("message").textContent = "YOU LOSE!!!";
+                document.getElementById("lossesString").textContent = losses;
                 game.restart();
                 game.play();
             }
@@ -74,8 +75,6 @@ document.onkeyup = function(event){
 
             // checks if guess is part of the computer's guess
             else if(game.CPUGuess.includes(guess)){
-                guesses.push(guess);  
-                guessesLeft--;
 
                 // replaces blank location with correct guess, using while statement to check for multiple locations of a single letter
                 var idx = game.CPUGuess.indexOf(guess);
@@ -92,16 +91,17 @@ document.onkeyup = function(event){
                 document.getElementById("character").textContent = blank.join(" ");
 
                 document.getElementById("message").textContent = "Correct!!!";
-                document.getElementById("lettersString").textContent = guesses.join(", ");
-                document.getElementById("guessesLeftString").textContent = guessesLeft;
 
+                // updates information on guesses 
+                game.update();
+                
             }
             else{
-                guesses.push(guess);  
-                guessesLeft--;
+
                 document.getElementById("message").textContent = "WRONG! Come on! Show me your moves!";
-                document.getElementById("lettersString").textContent = guesses.join(", ");
-                document.getElementById("guessesLeftString").textContent = guessesLeft;
+
+                // updates information on guesses 
+                game.update();
             
             }
 
@@ -110,6 +110,7 @@ document.onkeyup = function(event){
             wins++;
             // document.getElementById("message").textContent = "YOU GOT IT! FALCOOON PUNNNCH!";
             alert("YOU GOT IT! FALCOOON PUNNNCH!");
+            document.getElementById("winsString").textContent = wins;
             game.restart();
             game.play();
         }
