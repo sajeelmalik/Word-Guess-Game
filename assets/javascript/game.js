@@ -10,7 +10,7 @@ var correctLetters = 0;
 
 // arrays for hangman-styled displays
 var blank = []
-var images = []
+var images = ["assets/images/marth.png", "assets/images/fox.png", "assets/images/falcon.png", "assets/images/jigglypuff.png", "assets/images/falco.png", "assets/images/sheik.png", "assets/images/iceclimbers.png", "assets/images/peach.png", "assets/images/luigi.png", "assets/images/mario.png", "assets/images/ganondorf.png", "assets/images/drmario.png", "assets/images/mewtwo.png", "assets/images/bowser.jpeg", "assets/images/link.png", "assets/images/zelda.png", "assets/images/pikachu.png"]
 
 // game object that defines main game functions
 var game = {
@@ -64,6 +64,7 @@ document.onkeyup = function(event){
                 losses++;
                 document.getElementById("message").textContent = "YOU LOSE!!!";
                 document.getElementById("lossesString").textContent = losses;
+                $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+">")
                 game.restart();
                 game.play();
             }
@@ -107,8 +108,10 @@ document.onkeyup = function(event){
 
         }
         else{
+            game.update();
+            document.getElementById("message").textContent = "YOU GOT IT!";
+            $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+">")
             wins++;
-            // document.getElementById("message").textContent = "YOU GOT IT! FALCOOON PUNNNCH!";
             alert("YOU GOT IT! FALCOOON PUNNNCH!");
             document.getElementById("winsString").textContent = wins;
             game.restart();

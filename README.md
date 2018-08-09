@@ -5,7 +5,7 @@ Try to guess the randomly chosen Super Smash Bros. character!
 * You only have a certain number of guesses to figure out which character is hidden!
 * Powered by Bootstrap and Javascript
 
-Further design and  updates to come!
+Further design and updates to come!
 
 ## Getting Started
 
@@ -24,7 +24,6 @@ Follow the deployed project link below to play the game!
 ## Prerequisites
 
 The page can be run from any browser, preferably on Google Chrome!
-
 
 ## Technology Used
 
