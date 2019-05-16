@@ -15,11 +15,8 @@ var images = ["assets/images/marth.png", "assets/images/fox.png", "assets/images
 // game object that defines main game functions
 var game = {
 
+    // property that randomly chooses a word from the list of characters
     CPUGuess: words[(Math.floor(Math.random() * words.length))],
-
-    // computerGuess: function(){
-    //     return words[(Math.floor(Math.random() * words.length))];
-    // },
 
     play: function(){
         guessesLeft = this.CPUGuess.length + 4;
@@ -64,7 +61,7 @@ document.onkeyup = function(event){
                 losses++;
                 document.getElementById("message").textContent = "YOU LOSE!!!";
                 document.getElementById("lossesString").textContent = losses;
-                $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+">")
+                $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+" alt=" + game.CPUGuess + ">")
                 game.restart();
                 game.play();
             }
@@ -110,7 +107,7 @@ document.onkeyup = function(event){
         else{
             game.update();
             document.getElementById("message").textContent = "YOU GOT IT!";
-            $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+">")
+            $("#char").html("<img id = 'charImage' src = " + images[words.indexOf(game.CPUGuess)]+" alt=" + game.CPUGuess + ">")
             wins++;
             alert("YOU GOT IT! FALCOOON PUNNNCH!");
             document.getElementById("winsString").textContent = wins;
@@ -121,8 +118,4 @@ document.onkeyup = function(event){
         
     }
 
-    // // alert user to stay within the bounds of the game
-    // else{
-    //     alert("Type a letter to guess the word!");
-    // }
 };

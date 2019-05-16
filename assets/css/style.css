@@ -35,6 +35,20 @@ h3, h5, p, #character{
     color: white;
 }
 
+p{
+    letter-spacing: 0.7px;
+}
+
+#winsString, #lossesString, #lettersString, #guessesLeftString{
+    font-family: 'Bangers', cursive;
+    /* font-weight: bold; */
+    font-size: 1.4em;
+}
+
+#message{
+    font-size: 1.3em;
+}
+
 #character{
     font-size: 36px;
     font-weight: bold;
